@@ -1,0 +1,24 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <link rel="stylesheet" href="css/snake.css" type="text/css">
+    <script src="vendor/jquery-1.11.3.min.js"></script>
+    <script src="vendor/underscore.js"></script>
+    <script src="js/coordinate.js"></script>
+    <script src="js/apple.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/snake.js"></script>
+    <script src="js/view.js"></script>
+
+    <figure class="snake-game"></figure>
+    <script>
+      // var coord = new SnakeGame.Coord([4,5], "N");
+      // var snake = new SnakeGame.Snake ()
+      // var view = new SnakeGame.View($("figure"), snake);
+      $(function() {
+        new SnakeGame.View($(".snake-game"));
+      });
+    </script>
+  </body>
+</html>
