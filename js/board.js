@@ -20,21 +20,25 @@
     }
   };
 
-  Board.prototype.randomCoord = function () {
+  Board.prototype.randomPair = function () {
     var x = Math.floor(Math.random() * this.dim);
     var y = Math.floor(Math.random() * this.dim);
     var validPos = !_.any(this.snake.segments, function (coord) {
       return (coord.x === x && coord.y === y);
     });
     if (validPos) {
-      return new SnakeGame.Coord ([x, y]);
+      return [x, y];
     }
   };
 
   Board.prototype.generateApple = function () {
-    var segments = this.snake.segments;
-    var randomCoord = this.randomCoord();
-    var apple = new SnakeGame.Apple(randomCoord);
+    var newAppleCoord;
+    while (!newAppleCoord) {
+
+      newAppleCoord = this.randomPair();
+    }
+    // var segments = this.snake.segments;
+    var apple = new SnakeGame.Apple(new SnakeGame.Coord(newAppleCoord));
     this.apple = apple;
   };
 

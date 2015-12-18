@@ -2,6 +2,7 @@
   <head>
   </head>
   <body>
+    <dialog id="start-screen"> Press Space to Start </dialog>
     <link rel="stylesheet" href="css/snake.css" type="text/css">
     <script src="vendor/jquery-1.11.3.min.js"></script>
     <script src="vendor/underscore.js"></script>
@@ -13,12 +14,9 @@
 
     <figure class="snake-game"></figure>
     <script>
-      // var coord = new SnakeGame.Coord([4,5], "N");
-      // var snake = new SnakeGame.Snake ()
-      // var view = new SnakeGame.View($("figure"), snake);
-      $(function() {
-        new SnakeGame.View($(".snake-game"));
-      });
+        var view = new SnakeGame.View($(".snake-game"));
+
+
     </script>
   </body>
 </html>

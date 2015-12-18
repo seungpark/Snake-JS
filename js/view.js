@@ -4,16 +4,20 @@
     window.SnakeGame = {};
   }
 
-  var View = SnakeGame.View = function ($el, snake) {
+  var View = SnakeGame.View = function ($el) {
 
     this.$el = $el;
-    this.board = new SnakeGame.Board ($el);
+    this.gameover = true;
+
+    this.board = new SnakeGame.Board($el);
     $(window).on("keydown", this.handleKeys.bind(this));
-    window.setInterval(this.step.bind(this), 150);
+    document.getElementById("start-screen").showModal();
+
 
   };
 
   View.KEYS = {
+    32: "startgame",
     37: "W",
     38: "N",
     39: "E",
@@ -23,8 +27,13 @@
   View.prototype.handleKeys = function (event) {
     var key = View.KEYS[event.keyCode];
     if (key) {
+      //start game
       var diff;
-      if (key === "W") {
+      if (this.gameover && key === "startgame") {
+        $("#start-screen").hide();
+        this.start();
+        return;
+      } else if (key === "W") {
         diff = new SnakeGame.Coord([0, 1]);
       } else if (key === "E") {
         diff = new SnakeGame.Coord([0, -1]);
@@ -37,16 +46,25 @@
     }
   };
 
+  View.prototype.start = function () {
+    this.gameover = false;
+    this.interval = window.setInterval(this.step.bind(this), 100);
+  };
+
   View.prototype.step = function() {
     // store old segments of snake
     // and then move
     // and then store new segments of snake
     // and then render passing old and new
     this.board.snake.turn();
+
     var oldsegments = _.clone(this.board.snake.segments); //array of coordinates
     this.board.snake.move();
     var newsegments = _.clone(this.board.snake.segments);
-    this.checkApple(newsegments[0]);
+    if (this.checkApple(newsegments[0])) {
+      this.board.snake.grow(oldsegments[oldsegments.length - 1]);
+    }
+    newsegments = _.clone(this.board.snake.segments);
     this.render(oldsegments, newsegments);
   };
 
@@ -72,6 +90,7 @@
     if (coord.equals(this.board.apple.coord)) {
       this.board.generateApple();
       $(".apple").removeClass("apple");
+      return true;
       // this.board.snake.grow();
     }
   };
@@ -82,5 +101,7 @@
     var appleY = apple.coord.y;
     $("#" + appleX).children("." + appleY).addClass("apple");
   };
+
+
 
 })();

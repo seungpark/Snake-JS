@@ -19,7 +19,6 @@
     {
       case "N":
         this.segments.unshift(new SnakeGame.Coord([this.head.x - 1, this.head.y]));
-
         break;
       case "S":
         this.segments.unshift(new SnakeGame.Coord([this.head.x + 1, this.head.y]));
@@ -70,6 +69,10 @@
     this.turns.push(key);
     //this.dir = "N"
     //this.turns = [N, S, E, W, S]
+  };
+
+  Snake.prototype.grow = function (coord) {
+    this.segments.push(coord);
   };
 
 })();

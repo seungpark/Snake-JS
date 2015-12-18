@@ -19,23 +19,6 @@
     return this;
   };
 
-  // Coord.prototype.isOpposite = function (diff, snakesegments) {
-  //   debugger
-  //   this = head of snake Coord class
-  //   diff = coord [0,+-1]
-  //   // if (this.dir === "N" && newDir === "S"){
-  //   //   return true;
-  //   // } else if (this.dir === "S" && newDir === "N") {
-  //   //   return true;
-  //   // } else if (this.dir === "W" && newDir === "E") {
-  //   //   return true;
-  //   // } else if (this.dir === "E" && newDir === "W") {
-  //   //   return true;
-  //   // } else {
-  //   //   return false;
-  //   // }
-  // };
-
   Coord.prototype.equals = function (newCoord) {
     return (_.isEqual(newCoord.pos, this.pos));
   };
