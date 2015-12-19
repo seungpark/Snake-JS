@@ -43,7 +43,7 @@ div {
   width: 300px;
   background: #000080;
   color: #FFD700;
-  position: relative;
+  position: fixed;
   margin: auto;
   top: 20px;
   z-index: 1;
