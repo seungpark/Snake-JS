@@ -11,7 +11,6 @@
 
     this.board = new SnakeGame.Board($el);
     $(window).on("keydown", this.handleKeys.bind(this));
-    document.getElementById("start-screen").showModal();
 
 
   };
@@ -30,7 +29,8 @@
       //start game
       var diff;
       if (this.gameover && key === "startgame") {
-        $("#start-screen").hide();
+        $(".start").addClass("hidden");
+        $(".end").addClass("hidden");
         this.start();
         return;
       } else if (key === "W") {
@@ -47,9 +47,18 @@
   };
 
   View.prototype.start = function () {
+    this.board.resetBoard();
     this.gameover = false;
     this.interval = window.setInterval(this.step.bind(this), 100);
   };
+
+  View.prototype.endGame = function () {
+    this.gameover = true;
+    window.clearInterval(this.interval);
+    $(".end").removeClass("hidden");
+    // document.getElementById("start-screen").showModal();
+  };
+
 
   View.prototype.step = function() {
     // store old segments of snake
@@ -61,7 +70,10 @@
     var oldsegments = _.clone(this.board.snake.segments); //array of coordinates
     this.board.snake.move();
     var newsegments = _.clone(this.board.snake.segments);
-    if (this.checkApple(newsegments[0])) {
+    if (this.board.snake.dead) {
+      this.endGame();
+      return;
+    } else if (this.checkApple(newsegments[0])) {
       this.board.snake.grow(oldsegments[oldsegments.length - 1]);
     }
     newsegments = _.clone(this.board.snake.segments);

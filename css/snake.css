@@ -33,3 +33,20 @@ li.snake{
 li.apple {
   background-color: red;
 }
+
+.hidden {
+  display: none;
+}
+
+div {
+  display: block;
+  width: 300px;
+  background: #000080;
+  color: #FFD700;
+  position: relative;
+  margin: auto;
+  top: 20px;
+  z-index: 1;
+  padding: 20px;
+  border: 5px solid #fff;
+}

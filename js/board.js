@@ -6,8 +6,16 @@
 
   var Board = SnakeGame.Board = function (figure) {
     this.dim = 20;
+    this.figure = figure;
     this.setBoard(figure);
-    this.snake = new SnakeGame.Snake();
+    this.snake = new SnakeGame.Snake(this.dim);
+    this.generateApple();
+  };
+
+  Board.prototype.resetBoard = function () {
+    $(".snake").removeClass("snake");
+    $(".apple").removeClass("apple");
+    this.snake = new SnakeGame.Snake(this.dim);
     this.generateApple();
   };
 

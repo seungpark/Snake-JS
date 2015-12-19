@@ -4,11 +4,13 @@
     window.SnakeGame = {};
   }
 
-  var Snake = SnakeGame.Snake = function () {
+  var Snake = SnakeGame.Snake = function (boardDim) {
     this.dir = "N";
     this.segments = [ new SnakeGame.Coord([4,5]) ];
     this.head = this.segments[0]; //Coord
     this.turns = [];
+    this.dead = false;
+    this.boardDim = boardDim;
     // this.tail = this.segments[this.segments.length - 1];
     // this.remove = false;
     //this.segments = head is here[Coord, Coord, Coord]
@@ -37,6 +39,22 @@
     // this.remove = this.segments[this.segments.length - 1];
 
     this.segments.pop();
+    this.checkDie();
+  };
+
+  Snake.prototype.checkDie = function () {
+    //eats self or hits wall
+    if ( this.eatSelf() || this.hitWall() ) {
+      this.dead = true;
+    }
+  };
+
+  Snake.prototype.eatSelf = function () {
+    return _.findWhere(this.segments.slice(1), {x: this.head.x, y: this.head.y});
+  };
+
+  Snake.prototype.hitWall = function () {
+    return (this.head.x < 0 || this.head.x >= this.boardDim || this.head.y < 0 || this.head.y >= this.boardDim );
   };
 
   Snake.prototype.turn = function () {
