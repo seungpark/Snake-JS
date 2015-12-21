@@ -4,13 +4,15 @@
     window.SnakeGame = {};
   }
 
-  var Snake = SnakeGame.Snake = function (boardDim) {
+  var Snake = SnakeGame.Snake = function (boardheight, boardwidth) {
     this.dir = "N";
     this.segments = [ new SnakeGame.Coord([4,5]) ];
     this.head = this.segments[0]; //Coord
     this.turns = [];
     this.dead = false;
-    this.boardDim = boardDim;
+    this.boardHeight = boardheight;
+    this.boardWidth = boardwidth;
+    // this.boardDim = boardDim;
     // this.tail = this.segments[this.segments.length - 1];
     // this.remove = false;
     //this.segments = head is here[Coord, Coord, Coord]
@@ -54,13 +56,13 @@
   };
 
   Snake.prototype.hitWall = function () {
-    return (this.head.x < 0 || this.head.x >= this.boardDim || this.head.y < 0 || this.head.y >= this.boardDim );
+    return (this.head.x < 0 || this.head.x >= this.boardHeight || this.head.y < 0 || this.head.y >= this.boardWidth );
   };
 
   Snake.prototype.turn = function () {
     // direction = N S W E
     for (var i = this.turns.length - 1; i >= 0; i--) {
-      if (this.isOpposite(this.turns[i]) === false) {
+      if (!this.isOpposite(this.turns[i])) {
         this.dir = this.turns[i];
         // this.head.dir = newDir;
       }

@@ -1,12 +1,18 @@
-html, head, body, h1, figure, li, ul {
+html, head, body, h1, figure,
+li, ul, div {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
+
 }
 
 figure{
-  height: 540px;
-  width: 540px;
-  border: 1px solid black;
+  margin: auto;
+  height: auto;;
+}
+
+h1 {
+  margin: auto;
 }
 
 /*.clearfix:after{
@@ -16,37 +22,100 @@ figure{
 }*/
 
 ul{
+  background-color: #809fff;
+  border-left: 1px solid  #00004d;
+  border-right: 1px solid  #00004d;
+}
+
+ul:last-child{
+  border-bottom: 1px solid  #00004d;
+}
+
+ul:first-child{
+  border-top: 1px solid #00004d;
 }
 
 li{
   float: left;
   list-style: none;
-  height: 25px;
-  width: 25px;
-  border: 1px solid black;
+  display: block;
+  height: 100%;
+  /*height: auto;
+  width: auto;*/
+  border: 1px solid #00004d;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-li.snake{
-  background-color: green;
+li.N{
+  background-image: url("../assets/minion-up.gif");
+}
+li.S{
+  background-image: url("../assets/minion-down.gif");
+}
+li.W{
+  background-image: url("../assets/minion-left.gif");
+}
+li.E{
+  background-image: url("../assets/minion-right.gif");
 }
 
 li.apple {
-  background-color: red;
+  background-image: url("../assets/gru.png");
 }
 
 .hidden {
   display: none;
 }
 
+.screens {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.screen{
+  position: absolute;
+  top: 33%;
+  left: 33%;
+  width: 33%;
+  color: #ffff66;
+  background-color: #3385ff;
+  padding: 30px 20px;
+  border: 5px solid #ffff1a;
+  border-radius: 5px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.scores {
+  display: flex;
+  background-color: #3385ff;
+  font-family: sans-serif;
+  color: #ffff66;
+}
+
+.score-container {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.score-container h1 {
+  display: inline-block;
+}
+/*
 div {
   display: block;
   width: 300px;
   background: #000080;
   color: #FFD700;
   position: fixed;
-  margin: auto;
+  margin: 0 auto;
   top: 20px;
   z-index: 1;
   padding: 20px;
   border: 5px solid #fff;
-}
+}*/

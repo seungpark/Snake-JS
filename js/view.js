@@ -10,9 +10,9 @@
     this.gameover = true;
     this.score = 0;
     this.bestScore = 0;
-    this.board = new SnakeGame.Board($el);
+    // this.board = new SnakeGame.Board($el);
+    this.board = this.setBoard();
     $(window).on("keydown", this.handleKeys.bind(this));
-
 
   };
 
@@ -22,6 +22,23 @@
     38: "N",
     39: "E",
     40: "S"
+  };
+
+  View.prototype.setBoard = function () {
+    var height = ($(window).height() * 0.9);
+    var width = ($(window).width() * 0.95);
+    this.$el.css("width", width);
+    this.$el.css("height", height);
+
+    this.boardHeight = (height / 100);
+    this.boardWidth = (width / 100);
+    return new SnakeGame.Board(
+      this.$el,
+      this.boardHeight,
+      this.boardWidth,
+      height,
+      width
+    );
   };
 
   View.prototype.handleKeys = function (event) {
@@ -39,7 +56,7 @@
     this.score = 0;
     this.board.resetBoard();
     this.gameover = false;
-    this.interval = window.setInterval(this.step.bind(this), 100);
+    this.interval = window.setInterval(this.step.bind(this), 150);
   };
 
   View.prototype.endGame = function () {
@@ -56,32 +73,31 @@
     // and then store new segments of snake
     // and then render passing old and new
     this.board.snake.turn();
-
-    var oldsegments = _.clone(this.board.snake.segments); //array of coordinates
+    var oldTail = this.board.snake.segments[this.board.snake.segments.length - 1]; //array of coordinates
     this.board.snake.move();
-    var newsegments = _.clone(this.board.snake.segments);
+    var newsegments = this.board.snake.segments;
     if (this.board.snake.dead) {
       this.endGame();
       return;
     } else {
-      this.checkApple(newsegments[0], _.last(oldsegments));
+      this.checkApple(newsegments[0], oldTail);
     }
-    newsegments = _.clone(this.board.snake.segments);
-    this.render(oldsegments, newsegments);
+    newsegments = this.board.snake.segments;
+    this.render(oldTail, newsegments);
   };
 
   //after step, set new direction on snake
 
-  View.prototype.render = function (oldsegments, newsegments) {
+  View.prototype.render = function (oldTail, newsegments) {
     $(".score").html(this.score);
     $(".best-score").html(this.bestScore);
-    debugger
-    var removex = _.last(oldsegments).x;
-    var removey = _.last(oldsegments).y;
-    $("#" + removex).children("." + removey).removeClass("snake");
+    var removex = oldTail.x;
+    var removey = oldTail.y;
+    $("#" + removex).children("." + removey).removeClass("snake N S E W");
+
     var snakeX = newsegments[0].x;
     var snakeY = newsegments[0].y;
-    $("#" + snakeX).children("." + snakeY).addClass("snake");
+    $("#" + snakeX).children("." + snakeY).addClass("snake " + this.board.snake.dir);
     this.renderApple();
     //if snake didnt eat anything
 
