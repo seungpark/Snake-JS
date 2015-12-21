@@ -29,10 +29,6 @@
         $("#" + i).append("<li class=" + j + "></li>");
       }
     }
-    console.log(this.winSize[1]);
-    console.log((this.winSize[1] / (this.width + 1)) - 1);
-    console.log(this.width);
-    debugger
     $("ul").css("height", (this.winSize[0] / (this.height + 1)) );
     $("li").css("height", (this.winSize[0] / (this.height + 1)) - 2);
     $("ul").css("width", this.winSize[1]);
