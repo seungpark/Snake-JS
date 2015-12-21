@@ -8,7 +8,8 @@ li, ul, div {
 
 figure{
   margin: auto;
-  height: auto;;
+  height: auto;
+  background-image: url('../assets/background.jpg');
 }
 
 h1 {
@@ -22,17 +23,16 @@ h1 {
 }*/
 
 ul{
-  background-color: #809fff;
-  border-left: 1px solid  #00004d;
-  border-right: 1px solid  #00004d;
+  /*border-left: 1px solid  #00004d;*/
+  /*border-right: 1px solid  #00004d;*/
 }
 
 ul:last-child{
-  border-bottom: 1px solid  #00004d;
+  /*border-bottom: 1px solid  #00004d;*/
 }
 
 ul:first-child{
-  border-top: 1px solid #00004d;
+  /*border-top: 1px solid #00004d;*/
 }
 
 li{
@@ -42,7 +42,6 @@ li{
   height: 100%;
   /*height: auto;
   width: auto;*/
-  border: 1px solid #00004d;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -96,6 +95,7 @@ li.apple {
   background-color: #3385ff;
   font-family: sans-serif;
   color: #ffff66;
+  border-bottom: 3px solid #00004d;
 }
 
 .score-container {
