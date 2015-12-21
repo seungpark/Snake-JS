@@ -12,10 +12,6 @@
     this.dead = false;
     this.boardHeight = boardheight;
     this.boardWidth = boardwidth;
-    // this.boardDim = boardDim;
-    // this.tail = this.segments[this.segments.length - 1];
-    // this.remove = false;
-    //this.segments = head is here[Coord, Coord, Coord]
   };
 
   Snake.prototype.move = function () {
