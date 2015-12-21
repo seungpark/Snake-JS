@@ -10,7 +10,6 @@
     this.gameover = true;
     this.score = 0;
     this.bestScore = 0;
-    // this.board = new SnakeGame.Board($el);
     this.board = this.setBoard();
     $(window).on("keydown", this.handleKeys.bind(this));
 
@@ -63,15 +62,10 @@
     this.gameover = true;
     window.clearInterval(this.interval);
     $(".end").removeClass("hidden");
-    // document.getElementById("start-screen").showModal();
   };
 
 
   View.prototype.step = function() {
-    // store old segments of snake
-    // and then move
-    // and then store new segments of snake
-    // and then render passing old and new
     this.board.snake.turn();
     var oldTail = this.board.snake.segments[this.board.snake.segments.length - 1]; //array of coordinates
     this.board.snake.move();
@@ -86,7 +80,6 @@
     this.render(oldTail, newsegments);
   };
 
-  //after step, set new direction on snake
 
   View.prototype.render = function (oldTail, newsegments) {
     $(".score").html(this.score);
@@ -99,12 +92,7 @@
     var snakeY = newsegments[0].y;
     $("#" + snakeX).children("." + snakeY).addClass("snake " + this.board.snake.dir);
     this.renderApple();
-    //if snake didnt eat anything
 
-    // if (this.board.snake.remove) {
-    //   var remvx = this.board.snake.remove.x;
-    //   var remvy = this.board.snake.remove.y;
-    // }
   };
 
   View.prototype.checkApple = function (headCoord, growCoord) {
@@ -116,7 +104,6 @@
       if (this.score >= this.bestScore) {
         this.bestScore = this.score;
       }
-      // this.board.snake.grow();
     }
   };
 
@@ -126,7 +113,5 @@
     var appleY = apple.coord.y;
     $("#" + appleX).children("." + appleY).addClass("apple");
   };
-
-
 
 })();
