@@ -30,9 +30,9 @@
       }
     }
     $("ul").css("height", (this.winSize[0] / (this.height + 1)) );
-    $("li").css("height", (this.winSize[0] / (this.height + 1)) - 2);
+    $("li").css("height", (this.winSize[0] / (this.height + 1)) );
     $("ul").css("width", this.winSize[1]);
-    $("li").css("width", (this.winSize[1] / (Math.floor(this.width) + 1)) - 2);
+    $("li").css("width", (this.winSize[1] / (this.width + 1)) );
   };
 
   Board.prototype.randomPair = function () {
