@@ -27,7 +27,7 @@ ul{
 }
 
 ul:last-child{
-  /*border-bottom: 1px solid  #00004d;*/
+  border-bottom: 2px solid  #00004d;
 }
 
 ul:first-child{
