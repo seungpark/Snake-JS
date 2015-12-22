@@ -61,6 +61,7 @@
       if (!this.isOpposite(this.turns[i])) {
         this.dir = this.turns[i];
         // this.head.dir = newDir;
+        break;
       }
     }
     this.turns = [];
