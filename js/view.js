@@ -55,7 +55,7 @@
     this.score = 0;
     this.board.resetBoard();
     this.gameover = false;
-    this.interval = window.setInterval(this.step.bind(this), 200);
+    this.interval = window.setInterval(this.step.bind(this), 180);
   };
 
   View.prototype.endGame = function () {
