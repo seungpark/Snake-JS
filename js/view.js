@@ -24,13 +24,18 @@
   };
 
   View.prototype.setBoard = function () {
-    var height = ($(window).height() * 0.9);
+    var height = ($(window).height() * 0.95);
     var width = ($(window).width() * 0.95);
+    if (height < width) {
+      width = height;
+    } else {
+      height = width;
+    }
     this.$el.css("width", width);
     this.$el.css("height", height);
 
-    this.boardHeight = (height / 100);
-    this.boardWidth = (width / 100);
+    this.boardHeight = (height / 80);
+    this.boardWidth = (width / 80);
     return new SnakeGame.Board(
       this.$el,
       this.boardHeight,
