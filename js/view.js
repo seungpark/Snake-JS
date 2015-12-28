@@ -83,21 +83,23 @@
     }
     newsegments = this.board.snake.segments;
     this.render(oldTail, newsegments);
-    window.setTimeout(this.animate1.bind(this), 0);
     window.setTimeout(this.animate2.bind(this), 60);
     window.setTimeout(this.animate3.bind(this), 120);
   };
 
   View.prototype.animate1 = function() {
-    debugger
   };
 
   View.prototype.animate2 = function() {
-    debugger
+    var $snake = this.$el.find(".snake");
+    $snake.removeClass("snake-1");
+    $snake.addClass("snake-2");
   };
 
   View.prototype.animate3 = function() {
-    debugger
+    var $snake = this.$el.find(".snake");
+    $snake.removeClass("snake-2");
+    $snake.addClass("snake-3");
   };
 
   View.prototype.render = function (oldTail, newsegments) {
@@ -105,11 +107,11 @@
     $(".best-score").html(this.bestScore);
     var removex = oldTail.x;
     var removey = oldTail.y;
-    $("#" + removex).children("." + removey).removeClass("snake N S E W");
+    $("#" + removex).children("." + removey).removeClass("snake-3 N S E W");
 
     var snakeX = newsegments[0].x;
     var snakeY = newsegments[0].y;
-    $("#" + snakeX).children("." + snakeY).addClass("snake " + this.board.snake.dir);
+    $("#" + snakeX).children("." + snakeY).addClass("snake-1 " + this.board.snake.dir);
     this.renderApple();
 
   };
