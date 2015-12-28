@@ -24,22 +24,22 @@
   };
 
   View.prototype.setBoard = function () {
-    var height = ($(window).height() * 0.90);
-    var width = ($(window).width() * 0.95);
+    var height = Math.floor(($(window).height() * 0.90) / 75);
+    var width = Math.floor(($(window).width() * 0.95) / 75);
     // if (height < width) {
     //   width = height;
     // } else {
     //   height = width;
     // }
-    this.$el.css("width", width);
-    this.$el.css("height", height);
+    this.$el.css("width", (width * 75));
+    this.$el.css("height", (height * 75));
 
-    this.boardHeight = (height / 80);
-    this.boardWidth = (width / 80);
+    // this.boardHeight = (height / 75);
+    // this.boardWidth = (width / 75);
     return new SnakeGame.Board(
       this.$el,
-      this.boardHeight,
-      this.boardWidth,
+      height,
+      width,
       height,
       width
     );

@@ -24,6 +24,7 @@ h1 {
 }*/
 
 ul{
+  height: 75px;
   /*border-left: 1px solid  #00004d;*/
   /*border-right: 1px solid  #00004d;*/
 }
@@ -38,7 +39,8 @@ li{
   float: left;
   list-style: none;
   display: block;
-  height: 100%;
+  height: 75px;
+  width: 75px;
   /*height: auto;
   width: auto;*/
   /*background-image: url('../assets/background.png');*/
