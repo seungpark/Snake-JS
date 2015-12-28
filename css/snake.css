@@ -28,13 +28,11 @@ ul{
   /*border-right: 1px solid  #00004d;*/
 }
 
-ul:last-child{
+/*ul:last-child{
   border-bottom: 2px solid  #00004d;
-}
+}*/
 
-ul:first-child{
-  /*border-top: 1px solid #00004d;*/
-}
+
 
 li{
   float: left;
@@ -64,9 +62,8 @@ li.E{
 
 .snake {
   background-image: url("../assets/sprite.png");
-  background-size: auto;
+  background-size: initial;
 }
-
 
 
 .N {
@@ -100,7 +97,7 @@ li.E{
 
 
 li.apple {
-  background-image: url("../assets/gru.png");
+  background-image: url("../assets/teemo.png");
 }
 
 .hidden {

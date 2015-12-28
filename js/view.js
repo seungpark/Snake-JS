@@ -87,12 +87,9 @@
     window.setTimeout(this.animate3.bind(this), 120);
   };
 
-  View.prototype.animate1 = function() {
-  };
 
   View.prototype.animate2 = function() {
     var $snake = this.$el.find(".snake");
-    debugger
     $snake.removeClass("move1");
     $snake.addClass("move2");
   };
