@@ -24,18 +24,18 @@
   };
 
   View.prototype.setBoard = function () {
-    var height = ($(window).height() * 0.95);
+    var height = ($(window).height() * 0.90);
     var width = ($(window).width() * 0.95);
-    if (height < width) {
-      width = height;
-    } else {
-      height = width;
-    }
+    // if (height < width) {
+    //   width = height;
+    // } else {
+    //   height = width;
+    // }
     this.$el.css("width", width);
     this.$el.css("height", height);
 
-    this.boardHeight = (height / 80);
-    this.boardWidth = (width / 80);
+    this.boardHeight = (height / 60);
+    this.boardWidth = (width / 60);
     return new SnakeGame.Board(
       this.$el,
       this.boardHeight,
@@ -83,8 +83,22 @@
     }
     newsegments = this.board.snake.segments;
     this.render(oldTail, newsegments);
+    window.setTimeout(this.animate1.bind(this), 0);
+    window.setTimeout(this.animate2.bind(this), 60);
+    window.setTimeout(this.animate3.bind(this), 120);
   };
 
+  View.prototype.animate1 = function() {
+    debugger
+  };
+
+  View.prototype.animate2 = function() {
+    debugger
+  };
+
+  View.prototype.animate3 = function() {
+    debugger
+  };
 
   View.prototype.render = function (oldTail, newsegments) {
     $(".score").html(this.score);

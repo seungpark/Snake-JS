@@ -41,9 +41,13 @@ li{
   height: 100%;
   /*height: auto;
   width: auto;*/
-  background-image: url('../assets/background.png');
+  /*background-image: url('../assets/background.png');*/
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.square{
+  background-image: url('../assets/background.png');
 }
 
 li.N{
