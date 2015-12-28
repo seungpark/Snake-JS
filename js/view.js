@@ -118,10 +118,12 @@
     var snakeX = newsegments[0].x;
     var snakeY = newsegments[0].y;
     $("#" + snakeX).children("." + snakeY).addClass("snake move1 " + this.board.snake.dir);
-    this.$el.find(".snake").removeClass("move3");
-    this.$el.find(".snake").addClass("move1");
-    this.$el.find(".apple").removeClass("move3 N S E W");
-    this.$el.find(".apple").addClass("move1 " + this.board.snake.dir);
+    var $snake = this.$el.find(".snake");
+    $snake.removeClass("move3");
+    $snake.addClass("move1");
+    var $apple = this.$el.find(".apple");
+    $apple.removeClass("move3 N S E W");
+    $apple.addClass("move1 " + this.board.snake.dir);
     this.renderApple();
 
   };

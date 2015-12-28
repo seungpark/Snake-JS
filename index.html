@@ -1,16 +1,20 @@
 <html>
   <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
     <title>WeGru</title>
   </head>
   <body>
       <div class="start screen">
-        Help the Minions Find Gru!
-        <p>
-          Use  &#8593 &#8595 &#8592 &#8594  to Move!
+        Help Cho'Gath Eat All the Teemos!
+        <p>Use <span> &#8593 &#8595 &#8592 &#8594 </span> to Move!
         </p>Press Space to Start </div>
-      <div class="end screen hidden"> Game Over! Press Space to Try Again! </div>
+      <div class="end screen hidden">
+        Game Over!
+        <p> Press <span>Space</span> to Try Again!</p> </div>
     <div class="scores">
       <div class="score-container">
         <h1 class="best"> High Score: </h1><h1 class="best-score">0</h1>
@@ -32,15 +36,12 @@
     <figure class="snake-game fade-in"></figure>
     <script>
         var img1 = new Image();
-        img1.src = "assets/gru.png"
+        img1.src = "assets/sprite.png"
         var img2 = new Image();
-        img2.src = "assets/minion-down.gif"
+        img2.src = "assets/teemo.png"
         var img3 = new Image();
-        img3.src = "assets/minion-up.gif"
-        var img4 = new Image();
-        img4.src = "assets/minion-left.gif"
-        var img5 = new Image();
-        img5.src = "assets/minion-right.gif"
+        img3.src = "assets/background.png"
+
 
         var view = new SnakeGame.View($(".snake-game"));
 
