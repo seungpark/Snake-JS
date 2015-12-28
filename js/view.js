@@ -60,7 +60,7 @@
     this.score = 0;
     this.board.resetBoard();
     this.gameover = false;
-    this.interval = window.setInterval(this.step.bind(this), 180);
+    this.interval = window.setInterval(this.step.bind(this), 240);
   };
 
   View.prototype.endGame = function () {
@@ -83,8 +83,8 @@
     }
     newsegments = this.board.snake.segments;
     this.render(oldTail, newsegments);
-    window.setTimeout(this.animate2.bind(this), 60);
-    window.setTimeout(this.animate3.bind(this), 120);
+    window.setTimeout(this.animate2.bind(this), 80);
+    window.setTimeout(this.animate3.bind(this), 160);
   };
 
 
@@ -92,12 +92,20 @@
     var $snake = this.$el.find(".snake");
     $snake.removeClass("move1");
     $snake.addClass("move2");
+
+    var $apple = this.$el.find(".apple");
+    $apple.removeClass("move1");
+    $apple.addClass("move2");
   };
 
   View.prototype.animate3 = function() {
     var $snake = this.$el.find(".snake");
     $snake.removeClass("move2");
     $snake.addClass("move3");
+
+    var $apple = this.$el.find(".apple");
+    $apple.removeClass("move2");
+    $apple.addClass("move3");
   };
 
   View.prototype.render = function (oldTail, newsegments) {
@@ -112,6 +120,8 @@
     $("#" + snakeX).children("." + snakeY).addClass("snake move1 " + this.board.snake.dir);
     this.$el.find(".snake").removeClass("move3");
     this.$el.find(".snake").addClass("move1");
+    this.$el.find(".apple").removeClass("move3 N S E W");
+    this.$el.find(".apple").addClass("move1 " + this.board.snake.dir);
     this.renderApple();
 
   };
@@ -132,7 +142,7 @@
     var apple = this.board.apple;
     var appleX = apple.coord.x;
     var appleY = apple.coord.y;
-    $("#" + appleX).children("." + appleY).addClass("apple");
+    $("#" + appleX).children("." + appleY).addClass("apple move1 " + this.board.snake.dir);
   };
 
 })();

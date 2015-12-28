@@ -44,7 +44,7 @@ li{
   /*height: auto;
   width: auto;*/
   /*background-image: url('../assets/background.png');*/
-  background-size: cover;
+  background-size: initial;
   background-repeat: no-repeat;
 }
 
@@ -64,9 +64,11 @@ li.E{
 
 .snake {
   background-image: url("../assets/sprite.png");
-  background-size: initial;
 }
 
+li.apple {
+  background-image: url("../assets/teemo.png");
+}
 
 .N {
   background-position-y: -225px;
@@ -98,9 +100,6 @@ li.E{
 
 
 
-li.apple {
-  background-image: url("../assets/teemo.png");
-}
 
 .hidden {
   display: none;
