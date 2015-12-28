@@ -33,7 +33,6 @@
     $("li").css("height", (this.winSize[0] / (Math.floor(this.height) + 1)) );
     $("ul").css("width", this.winSize[1]);
     $("li").css("width", (this.winSize[1] / (Math.floor(this.width) + 1)) );
-    $("li").addClass('square');
   };
 
   Board.prototype.randomPair = function () {

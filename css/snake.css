@@ -9,6 +9,8 @@ li, ul, div {
 figure{
   margin: auto;
   height: auto;
+  background-image: url('../assets/background.png');
+  background-size: auto;
 }
 
 h1 {
@@ -46,11 +48,8 @@ li{
   background-repeat: no-repeat;
 }
 
-.square{
-  background-image: url('../assets/background.png');
-}
 
-li.N{
+/*li.N{
   background-image: url("../assets/minion-up.gif");
 }
 li.S{
@@ -61,7 +60,44 @@ li.W{
 }
 li.E{
   background-image: url("../assets/minion-right.gif");
+}*/
+
+.snake {
+  background-image: url("../assets/sprite.png");
+  background-size: auto;
 }
+
+
+
+.N {
+  background-position-y: -225px;
+}
+
+.S {
+  background-position-y: -150px;
+}
+
+.W {
+  background-position-y: -75px;
+}
+
+.E {
+  background-position-y: 0px;
+}
+
+.move1 {
+  background-position-x: 0px;
+}
+
+.move2 {
+  background-position-x: -75px;
+}
+
+.move3 {
+  background-position-x: -150px;
+}
+
+
 
 li.apple {
   background-image: url("../assets/gru.png");

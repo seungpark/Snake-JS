@@ -34,8 +34,8 @@
     this.$el.css("width", width);
     this.$el.css("height", height);
 
-    this.boardHeight = (height / 60);
-    this.boardWidth = (width / 60);
+    this.boardHeight = (height / 80);
+    this.boardWidth = (width / 80);
     return new SnakeGame.Board(
       this.$el,
       this.boardHeight,
@@ -92,14 +92,15 @@
 
   View.prototype.animate2 = function() {
     var $snake = this.$el.find(".snake");
-    $snake.removeClass("snake-1");
-    $snake.addClass("snake-2");
+    debugger
+    $snake.removeClass("move1");
+    $snake.addClass("move2");
   };
 
   View.prototype.animate3 = function() {
     var $snake = this.$el.find(".snake");
-    $snake.removeClass("snake-2");
-    $snake.addClass("snake-3");
+    $snake.removeClass("move2");
+    $snake.addClass("move3");
   };
 
   View.prototype.render = function (oldTail, newsegments) {
@@ -107,11 +108,13 @@
     $(".best-score").html(this.bestScore);
     var removex = oldTail.x;
     var removey = oldTail.y;
-    $("#" + removex).children("." + removey).removeClass("snake-3 N S E W");
+    $("#" + removex).children("." + removey).removeClass("snake move3 N S E W");
 
     var snakeX = newsegments[0].x;
     var snakeY = newsegments[0].y;
-    $("#" + snakeX).children("." + snakeY).addClass("snake-1 " + this.board.snake.dir);
+    $("#" + snakeX).children("." + snakeY).addClass("snake move1 " + this.board.snake.dir);
+    this.$el.find(".snake").removeClass("move3");
+    this.$el.find(".snake").addClass("move1");
     this.renderApple();
 
   };
