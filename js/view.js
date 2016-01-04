@@ -60,7 +60,7 @@
     this.score = 0;
     this.board.resetBoard();
     this.gameover = false;
-    this.interval = window.setInterval(this.step.bind(this), 240);
+    this.interval = window.setInterval(this.step.bind(this), 210);
   };
 
   View.prototype.endGame = function () {
@@ -83,8 +83,8 @@
     }
     newsegments = this.board.snake.segments;
     this.render(oldTail, newsegments);
-    window.setTimeout(this.animate2.bind(this), 80);
-    window.setTimeout(this.animate3.bind(this), 160);
+    window.setTimeout(this.animate2.bind(this), 70);
+    window.setTimeout(this.animate3.bind(this), 140);
   };
 
 
