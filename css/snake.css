@@ -107,32 +107,44 @@ li.apple {
   background-image: url("../assets/teemo.png");
 }
 
-.N {
-  background-position-y: -225px;
+.N.move1 {
+  background-position: 0px -225px;
+}
+.N.move2 {
+  background-position: -75px -225px;
+}
+.N.move3 {
+  background-position: -150px -225px;
 }
 
-.S {
-  background-position-y: -150px;
+.S.move1 {
+  background-position: 0px -150px;
+}
+.S.move2 {
+  background-position: -75px -150px;
+}
+.S.move3 {
+  background-position: -150px -150px;
 }
 
-.W {
-  background-position-y: -75px;
+.W.move1 {
+  background-position: 0px -75px;
+}
+.W.move2 {
+  background-position: -75px -75px;
+}
+.W.move3 {
+  background-position: -150px -75px;
 }
 
-.E {
-  background-position-y: 0px;
+.E.move1 {
+  background-position: 0px 0px;
 }
-
-.move1 {
-  background-position-x: 0px;
+.E.move2 {
+  background-position: -75px 0px;
 }
-
-.move2 {
-  background-position-x: -75px;
-}
-
-.move3 {
-  background-position-x: -150px;
+.E.move3 {
+  background-position: -150px 0px;
 }
 
 
