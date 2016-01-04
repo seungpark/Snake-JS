@@ -58,8 +58,9 @@
   Snake.prototype.turn = function () {
     // direction = N S W E
     for (var i = this.turns.length - 1; i >= 0; i--) {
-      if (!this.isOpposite(this.turns[i])) {
-        this.dir = this.turns[i];
+      turnDir = this.turns[i];
+      if (!this.isOpposite(turnDir)) {
+        this.dir = turnDir;
         // this.head.dir = newDir;
         break;
       }
