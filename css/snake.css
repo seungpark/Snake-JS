@@ -52,6 +52,15 @@ figure{
 
 h1 {
   margin: auto;
+  font-family: Bangers;
+}
+
+.best-score {
+  text-indent: 10px;
+}
+
+.score {
+  text-indent: 10px;
 }
 
 /*.clearfix:after{
